@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import AngebotForm from '../components/AngebotForm.tsx';
+---
+
+<Base>
+  <Hero />
+
+  <section id="angebot" class="py-20 px-6 bg-slate-50">
+    <div class="max-w-lg mx-auto text-center mb-10">
+      <h2 class="text-3xl font-bold mb-3">Kostenloses Angebot anfordern</h2>
+      <p class="text-gray-500">In nur 3 Schritten zu Ihrem persönlichen Angebot.</p>
+    </div>
+    <AngebotForm client:load />
+  </section>
+</Base>
