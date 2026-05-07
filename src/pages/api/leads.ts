@@ -153,10 +153,9 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const resendKey = import.meta.env.RESEND_API_KEY;
-  const leadEmail = import.meta.env.LEAD_EMAIL;       // where YOU receive lead notifications
+  const leadEmail = import.meta.env.LEAD_EMAIL;
   const webhookUrl = import.meta.env.CRM_WEBHOOK_URL;
 
-  // At least one delivery method must be configured
   if (!resendKey && !webhookUrl) {
     console.error('No delivery method configured. Set RESEND_API_KEY + LEAD_EMAIL or CRM_WEBHOOK_URL.');
     return new Response(
@@ -169,10 +168,14 @@ export const POST: APIRoute = async ({ request }) => {
 
   // 1. Forward to CRM webhook
   if (webhookUrl) {
+    const webhookSecret = import.meta.env.CRM_WEBHOOK_SECRET;
     try {
       const res = await fetch(webhookUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(webhookSecret ? { 'x-webhook-secret': webhookSecret } : {}),
+        },
         body: JSON.stringify(body),
       });
       if (!res.ok) throw new Error(`Webhook status ${res.status}`);
