@@ -1,0 +1,21 @@
+---
+import AngebotForm from './AngebotForm.tsx';
+---
+
+<section id="angebot" class="py-24 lg:py-32 bg-cream-pale">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-16">
+
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="text-[13px] font-medium tracking-[0.06em] uppercase text-brand/50 mb-4">Kostenlos & unverbindlich</p>
+        <h2 class="text-4xl lg:text-[50px] text-brand mb-4">Die 2-Minuten Velux&#8209;Anfrage</h2>
+        <p class="text-[18px] text-brand/60 leading-relaxed">
+          Jetzt Angebot anfordern und innerhalb von 24 Stunden Ihr persönliches Festpreisangebot erhalten.
+        </p>
+      </div>
+
+      <AngebotForm client:load />
+    </div>
+
+  </div>
+</section>

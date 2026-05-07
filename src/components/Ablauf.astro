@@ -1,0 +1,56 @@
+---
+const steps = [
+  {
+    num: '01',
+    title: 'Anfrage stellen',
+    body: 'Formular ausfüllen, Typenschild oder Maße angeben.',
+  },
+  {
+    num: '02',
+    title: 'Angebot erhalten',
+    body: 'Kostenloses Angebot innerhalb von 24 Stunden per E-Mail.',
+  },
+  {
+    num: '03',
+    title: 'Aufmaß',
+    body: 'Termin für Aufmaß vereinbaren.',
+  },
+  {
+    num: '04',
+    title: 'Montage',
+    body: 'Fachgerechte Montage durch zertifizierten Fachbetrieb.',
+  },
+];
+---
+
+<section id="ablauf" class="py-24 lg:py-32 bg-cream-pale">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-16">
+
+    <div class="mb-14 lg:mb-16">
+      <p class="text-[13px] font-medium tracking-[0.06em] uppercase text-brand/50 mb-4">Einfach & transparent</p>
+      <h2 class="text-4xl lg:text-[50px] text-brand">So läuft's ab</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {steps.map(({ num, title, body }) => (
+        <div class="bg-cream rounded-[34px] p-8 lg:p-10 min-h-[260px] flex flex-col justify-between">
+          <span class="text-[50px] font-light text-brand/30 leading-none">{num}</span>
+          <div>
+            <h3 class="text-[22px] font-medium text-brand mb-3">{title}</h3>
+            <p class="text-[16px] text-brand/70 leading-relaxed">{body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-10 flex justify-center">
+      <a
+        href="#angebot"
+        class="inline-flex items-center gap-2 bg-brand text-white rounded-full px-9 py-5 text-[18px] font-medium hover:bg-brand-deep transition-colors duration-[220ms]"
+      >
+        Jetzt kostenlos anfragen
+      </a>
+    </div>
+
+  </div>
+</section>

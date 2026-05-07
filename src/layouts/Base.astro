@@ -7,9 +7,38 @@ interface Props {
 }
 
 const {
-  title = 'Dachblick – Ihr Dachdeckermeister',
-  description = 'Dachblick – professionelle Dachdeckerarbeiten, Dachsanierung und Dachreparatur in Ihrer Region. Jetzt kostenloses Angebot anfordern.',
+  title = 'Dachblick – Velux Dachfenster Austausch & Einbau mit Montage zum Festpreis',
+  description = 'Velux Dachfenster austauschen oder neu einbauen? Kostenloses Angebot in 2 Minuten. Original Velux Produkte. Zertifizierte Montage durch Fachbetriebe.',
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://dachblick.de');
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
+      '@id': 'https://dachblick.de/#business',
+      name: 'Dachblick',
+      description: 'Velux Dachfenster austauschen oder neu einbauen. Zertifizierte Partner, Festpreise, kostenlose Beratung.',
+      url: 'https://dachblick.de',
+      priceRange: '€€',
+      areaServed: { '@type': 'Country', name: 'DE' },
+    },
+    {
+      '@type': 'Service',
+      name: 'Velux Dachfenster Austausch',
+      description: 'Altes Dachfenster fachgerecht austauschen. Original Velux Produkte. Festpreis inklusive Montage.',
+      provider: { '@id': 'https://dachblick.de/#business' },
+    },
+    {
+      '@type': 'Service',
+      name: 'Velux Dachfenster Neueinbau',
+      description: 'Neues Dachfenster einbauen. Planung, Lieferung und Montage durch zertifizierte Fachbetriebe.',
+      provider: { '@id': 'https://dachblick.de/#business' },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -17,14 +46,29 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Dachblick" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
-  <body class="bg-white text-gray-900 antialiased">
+  <body>
     <slot />
   </body>
 </html>

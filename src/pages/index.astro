@@ -1,17 +1,43 @@
 ---
 import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
-import AngebotForm from '../components/AngebotForm.tsx';
+import Ablauf from '../components/Ablauf.astro';
+import FormSection from '../components/FormSection.astro';
+import Vorteile from '../components/Vorteile.astro';
+import FAQ from '../components/FAQ.tsx';
+import Footer from '../components/Footer.astro';
 ---
 
 <Base>
-  <Hero />
+  <Nav />
+  <main>
+    <Hero />
+    <Ablauf />
+    <FormSection />
+    <Vorteile />
 
-  <section id="angebot" class="py-20 px-6 bg-slate-50">
-    <div class="max-w-lg mx-auto text-center mb-10">
-      <h2 class="text-3xl font-bold mb-3">Kostenloses Angebot anfordern</h2>
-      <p class="text-gray-500">In nur 3 Schritten zu Ihrem persönlichen Angebot.</p>
-    </div>
-    <AngebotForm client:load />
-  </section>
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 lg:py-32 bg-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-16">
+        <div class="max-w-2xl mx-auto">
+          <div class="mb-12">
+            <p class="text-[13px] font-medium tracking-[0.06em] uppercase text-brand/50 mb-4">Häufige Fragen</p>
+            <h2 class="text-4xl lg:text-[50px] text-brand">FAQ</h2>
+          </div>
+          <FAQ client:load />
+          <div class="mt-12 text-center">
+            <p class="text-[16px] text-brand/60 mb-5">Weitere Fragen? Wir helfen gerne weiter.</p>
+            <a
+              href="#angebot"
+              class="inline-flex items-center gap-2 bg-brand text-white rounded-full px-9 py-5 text-[17px] font-medium hover:bg-brand-deep transition-colors duration-[220ms]"
+            >
+              Jetzt kostenlos anfragen
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
 </Base>

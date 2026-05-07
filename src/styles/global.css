@@ -1,1 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --color-brand: rgb(24 19 89);
+  --color-brand-deep: rgb(11 8 51);
+  --color-brand-bright: rgb(44 31 162);
+  --color-cream: rgb(237 230 215);
+  --color-cream-pale: rgb(250 247 240);
+  --color-cream-light: rgb(245 239 226);
+  --color-cream-muted: rgb(223 213 191);
+  --color-velux-red: rgb(255 0 0);
+  --color-check: rgb(58 124 80);
+  --font-sans: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: rgb(24 19 89);
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  text-wrap: balance;
+  margin: 0;
+}
+
+h4 { font-weight: 500; }
+
+p { margin: 0; }
+
+button, input, textarea, select {
+  font-family: inherit;
+}

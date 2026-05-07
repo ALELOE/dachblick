@@ -1,0 +1,49 @@
+---
+const vorteile = [
+  {
+    title: 'Preisgarantie',
+    body: 'Kein versteckter Mehrpreis. Sie erhalten einen verbindlichen Preis — inklusive aller Materialien und Montage.',
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
+  },
+  {
+    title: 'Velux Originalprodukte',
+    body: 'Nur echte Velux Fenster und Zubehör — keine Alternativen, keine Kompromisse. Mit voller Herstellergarantie.',
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  },
+  {
+    title: 'Zertifizierte Partner',
+    body: 'Alle Einbauten werden von geprüften Velux Fachbetrieben und Zimmereien ausgeführt — in Ihrer Region.',
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>`,
+  },
+  {
+    title: 'Kostenlose Beratung',
+    body: 'Unverbindlich und schnell. Kein Verkaufsdruck, kein Vor-Ort-Termin notwendig — alles läuft digital.',
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>`,
+  },
+];
+---
+
+<section id="vorteile" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-16">
+
+    <div class="mb-14 lg:mb-16">
+      <p class="text-[13px] font-medium tracking-[0.06em] uppercase text-brand/50 mb-4">Warum Dachblick</p>
+      <h2 class="text-4xl lg:text-[50px] text-brand">Ihre Vorteile</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      {vorteile.map(({ title, body, icon }) => (
+        <div class="flex items-start gap-6 bg-cream-pale rounded-[34px] p-8 lg:p-10">
+          <div class="w-12 h-12 rounded-full bg-cream flex items-center justify-center shrink-0 text-brand">
+            <Fragment set:html={icon} />
+          </div>
+          <div>
+            <h3 class="text-[20px] font-medium text-brand mb-2">{title}</h3>
+            <p class="text-[16px] text-brand/70 leading-relaxed">{body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

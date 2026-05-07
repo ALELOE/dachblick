@@ -1,0 +1,97 @@
+---
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-brand/[0.06]">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-16 py-5 flex items-center justify-between gap-6">
+
+    <!-- Logo -->
+    <a href="/" class="text-[28px] lg:text-[32px] font-medium text-brand-bright tracking-[-0.01em] shrink-0">
+      Dachblick
+    </a>
+
+    <!-- Desktop nav pill -->
+    <nav class="hidden lg:flex items-center gap-10 bg-cream rounded-full px-10 py-4" aria-label="Hauptnavigation">
+      <a href="#leistungen" class="text-[17px] text-brand hover:text-brand/60 transition-colors duration-[140ms]">Leistungen</a>
+      <a href="#ablauf"     class="text-[17px] text-brand hover:text-brand/60 transition-colors duration-[140ms]">Ablauf</a>
+      <a href="#vorteile"   class="text-[17px] text-brand hover:text-brand/60 transition-colors duration-[140ms]">Vorteile</a>
+      <a href="#faq"        class="text-[17px] text-brand hover:text-brand/60 transition-colors duration-[140ms]">FAQ</a>
+    </nav>
+
+    <!-- Desktop CTA -->
+    <a
+      href="#angebot"
+      class="hidden lg:inline-flex items-center gap-2 bg-brand text-white rounded-full px-7 py-3.5 text-[16px] font-medium hover:bg-brand-deep transition-colors duration-[220ms] shrink-0"
+    >
+      Kostenloses Angebot
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="nav-toggle"
+      type="button"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      class="lg:hidden flex flex-col gap-[5px] w-7 cursor-pointer"
+    >
+      <span class="h-0.5 w-full bg-brand rounded-full transition-all duration-[220ms]" id="hb-1"></span>
+      <span class="h-0.5 w-full bg-brand rounded-full transition-all duration-[220ms]" id="hb-2"></span>
+      <span class="h-0.5 w-full bg-brand rounded-full transition-all duration-[220ms]" id="hb-3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden border-t border-brand/[0.06]"
+    role="navigation"
+    aria-label="Mobile Navigation"
+  >
+    <div class="max-w-[1440px] mx-auto px-6 py-6 flex flex-col gap-4">
+      <a href="#leistungen" class="text-[18px] text-brand py-2 hover:text-brand/60 transition-colors" onclick="closeMobileMenu()">Leistungen</a>
+      <a href="#ablauf"     class="text-[18px] text-brand py-2 hover:text-brand/60 transition-colors" onclick="closeMobileMenu()">Ablauf</a>
+      <a href="#vorteile"   class="text-[18px] text-brand py-2 hover:text-brand/60 transition-colors" onclick="closeMobileMenu()">Vorteile</a>
+      <a href="#faq"        class="text-[18px] text-brand py-2 hover:text-brand/60 transition-colors" onclick="closeMobileMenu()">FAQ</a>
+      <a
+        href="#angebot"
+        class="mt-2 inline-flex justify-center bg-brand text-white rounded-full px-7 py-4 text-[16px] font-medium hover:bg-brand-deep transition-colors"
+        onclick="closeMobileMenu()"
+      >
+        Kostenloses Angebot
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const hb1 = document.getElementById('hb-1');
+  const hb3 = document.getElementById('hb-3');
+
+  let isOpen = false;
+
+  function openMenu() {
+    isOpen = true;
+    menu?.classList.remove('hidden');
+    toggle?.setAttribute('aria-expanded', 'true');
+    toggle?.setAttribute('aria-label', 'Menü schließen');
+    hb1?.classList.add('rotate-45', 'translate-y-[7px]');
+    hb3?.classList.add('-rotate-45', '-translate-y-[7px]');
+  }
+
+  function closeMenu() {
+    isOpen = false;
+    menu?.classList.add('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'Menü öffnen');
+    hb1?.classList.remove('rotate-45', 'translate-y-[7px]');
+    hb3?.classList.remove('-rotate-45', '-translate-y-[7px]');
+  }
+
+  (window as any).closeMobileMenu = closeMenu;
+
+  toggle?.addEventListener('click', () => {
+    if (isOpen) closeMenu(); else openMenu();
+  });
+</script>

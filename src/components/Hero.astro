@@ -1,20 +1,57 @@
 ---
 ---
 
-<section class="relative flex min-h-screen flex-col items-center justify-center bg-slate-800 px-6 text-white">
-  <div class="max-w-3xl text-center">
-    <h1 class="mb-4 text-5xl font-bold leading-tight tracking-tight">
-      Ihr Dach in besten Händen
-    </h1>
-    <p class="mb-8 text-xl text-slate-300">
-      Dachblick steht für zuverlässige Dachdeckerarbeiten, schnelle Reparaturen
-      und kompetente Beratung – regional, fair und transparent.
-    </p>
-    <a
-      href="#angebot"
-      class="inline-block rounded-2xl bg-amber-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:bg-amber-600"
-    >
-      Kostenloses Angebot anfordern
-    </a>
+<section class="bg-white pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-16">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-12 lg:gap-16 items-center">
+
+      <!-- Left: Text + trust + CTA -->
+      <div>
+        <h1 class="text-[42px] sm:text-[54px] lg:text-[64px] text-brand leading-[1.05] tracking-[-0.01em] mb-6 max-w-[580px]">
+          Velux Dachfenster austauschen & einbauen — zum Festpreis mit Montage
+        </h1>
+
+        <p class="text-[18px] lg:text-[20px] text-brand/70 leading-[1.5] mb-10 max-w-[480px]">
+          Kostenloses Angebot in 2 Minuten. Zertifizierte Partner in Ihrer Region.
+        </p>
+
+        <!-- Trust badges -->
+        <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3 mb-10">
+          <div class="flex items-center gap-2.5 bg-cream-pale rounded-full px-5 py-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand shrink-0">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span class="text-[14px] font-medium text-brand">Preisgarantie</span>
+          </div>
+          <div class="flex items-center gap-2.5 bg-cream-pale rounded-full px-5 py-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand shrink-0">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span class="text-[14px] font-medium text-brand">Velux Spezialist</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <a
+          href="#angebot"
+          class="inline-flex items-center gap-2 bg-brand text-white rounded-full px-9 py-5 text-[18px] font-medium hover:bg-brand-deep transition-colors duration-[220ms]"
+        >
+          Kostenloses Angebot
+        </a>
+      </div>
+
+      <!-- Right: Hero image -->
+      <div class="relative hidden lg:block">
+        <div class="rounded-[58px] overflow-hidden shadow-[0_4px_4px_rgba(0,0,0,0.25)] aspect-[3/4]">
+          <img
+            src="/Fenster.jpg"
+            alt="Velux Dachfenster eingebaut in einem modernen Dachgeschoss"
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
